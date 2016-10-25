@@ -1,0 +1,10 @@
+<div class="row search-box">
+    <div class="result-text result-text">{{modelData[0].fName}} {{modelData[0].lName}} ({{modelData[0].phone}}) will
+        depart from {{locationData.location.name}} on {{modelData[1].departDate | date: 'dd-MMMM-yyyy' }}
+        and return on {{modelData[1].returnDate | date :'dd-MMMM-yyyy'}}.
+    </div>
+
+    <div class="top-mar">
+        <button class="btn btn-info btn-md pull-right" ng-click="formSubmit()"> submit</button>
+    </div>
+</div>

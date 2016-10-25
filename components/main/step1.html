@@ -1,0 +1,51 @@
+<div class="row search-box">
+    <form name="myform">
+        <div class="form-group">
+            <label>First Name: </label>
+
+            <input type="text" class="form-control" required ng-pattern="/^[a-zA-Z]*$/" ng-model="data.fName"
+                   name="fname"/>
+            <div class="help-block"
+                 ng-show="myform.fname.$error.pattern">
+                <div class="error-text">Alphabet only please.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label> Last Name :</label>
+            <input type="text" class="form-control" required ng-pattern="/^[a-zA-Z]*$/" ng-model="data.lName"
+                   name="lname"/>
+            <div class="help-block"
+                 ng-show="myform.lname.$error.pattern">
+                <div class="error-text">Alphabet only please.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label> Email :</label>
+            <input type="email" class="form-control" name="email" required ng-model="data.email"/>
+            <div class="help-block"
+                 ng-show="myform.email.$error.email">
+                <div class="error-text">Invalid email address.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label> Phone :</label>
+            <input type="number" class="form-control" ng-minlength="10" ng-maxlength="10" name="phone"
+                   ng-model="data.phone" required/>
+            <div class="help-block"
+                 ng-show="((myform.phone.$error.minlength || myform.phone.$error.maxlength)&& myform.phone.$dirty)">
+                <div class="error-text">phone number should be 10 digits</div>
+            </div>
+        </div>
+
+        <div class="col-md-4 top-mar">
+            <button ui-sref="form.step2" class="btn btn-info btn-md glyphicon glyphicon-arrow-right"
+                    ng-disabled="myform.$invalid" ng-click="myform.$valid && nextSelection(data)"> NextSelection
+            </button>
+        </div>
+
+        <h4 class="hint-text pull-right">Hint: All fields are mandatory</h4>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="jumbotron text-center">
+        <button ui-sref="home" class="btn btn-info btn-md glyphicon glyphicon-home  pull-right"> Home</button>
+        <h1>Travelyaari</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
+            <uib-tabset active="tabIndex" justified="true">
+                <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disabled">
+                    <div ui-view></div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

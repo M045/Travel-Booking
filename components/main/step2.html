@@ -1,0 +1,67 @@
+<div class="row search-box">
+    <form name="myform">
+        <div class="form-group col-md-12 top-mar">
+            <label>Location:</label>
+            <ui-select ng-model="locationData.location" theme="bootstrap" ng-required="true">
+                <ui-select-match placeholder="Click to select city name">{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="e in city |filter:$select.search">{{e.name}}</ui-select-choices>
+            </ui-select>
+
+
+            <div class="row">
+                <div class="col-md-12 top-mar">
+                    <label>Date Depart:</label>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                               ng-model="data.departDate" name="date" placeholder="Click to select valid date"
+                               is-open="deportPopUp.opened" datepicker-options="dateOptions" ng-required="true"
+                               close-text="Close" ng-click="deportDate()"/>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="deportDate()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="help-block"
+                         ng-show="myform.date.$error.date">
+                        <div class="error-text">Invalid date(eg.19-October-2016).</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 top-mar">
+                    <label>Date Return:</label>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                               ng-model="data.returnDate" name="date1" placeholder="Click to select valid date"
+                               is-open="returnPopUp.opened" datepicker-options="dateOptions" ng-required="true"
+                               close-text="Close" ng-click="returnDate()"/>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="returnDate()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="help-block"
+                         ng-show="myform.date1.$error.date">
+                        <div class="error-text">Invalid date(eg.19-October-2016).</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 top-mar">
+                <button ui-sref="form.step3 " class="btn btn-info btn-md glyphicon glyphicon-arrow-right"
+                        ng-disabled="myform.$invalid" ng-click="myform.$valid && nextSelection(data)"> NextSelection
+                </button>
+            </div>
+            <h5 class="hint-text pull-right" style="color: #FF0000">Hint: All fields are mandatory</h5>
+        </div>
+    </form>
+</div>
